@@ -10,29 +10,31 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Montserrat', sans-serif; color: #333; line-height: 1.6; background: #fdfdfd; }
         
-        /* --- Exact Navigation Panel --- */
+        /* --- Navigation & Mobile Fix --- */
         nav { background: #ffffff; padding: 1.2rem 5%; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); position: sticky; top: 0; z-index: 1000; }
         .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-        .logo img { height: 40px; width: auto; display: block; }
+        .logo img { height: 35px; width: auto; display: block; }
+        
         .nav-links { display: flex; gap: 2.5rem; list-style: none; }
         .nav-links a { color: #0A192F; text-decoration: none; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; transition: 0.3s; }
         .nav-links a:hover { color: #C9A962; }
+        
         .menu-toggle { display: none; background: none; border: none; font-size: 1.8rem; color: #0A192F; cursor: pointer; }
 
         /* --- Career Hero --- */
         .career-hero {
             background: linear-gradient(rgba(10, 25, 47, 0.9), rgba(10, 25, 47, 0.7)), url('img/hero-careers.jpg') center/cover;
-            height: 40vh; display: flex; align-items: center; justify-content: center; color: white; text-align: center;
+            height: 40vh; display: flex; align-items: center; justify-content: center; color: white; text-align: center; padding: 0 5%;
         }
-        .hero-text h1 { font-size: 3rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
+        .hero-text h1 { font-size: clamp(1.8rem, 5vw, 3rem); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px; }
 
         /* --- Search/Filter Bar --- */
-        .filter-section { padding: 2rem 5%; text-align: center; background: #fff; border-bottom: 1px solid #eee; position: sticky; top: 78px; z-index: 900; }
-        #jobSearch { padding: 12px 25px; width: 100%; max-width: 500px; border-radius: 50px; border: 1px solid #ddd; outline: none; }
+        .filter-section { padding: 1.5rem 5%; text-align: center; background: #fff; border-bottom: 1px solid #eee; position: sticky; top: 72px; z-index: 900; }
+        #jobSearch { padding: 12px 25px; width: 100%; max-width: 500px; border-radius: 50px; border: 1px solid #ddd; outline: none; font-size: 1rem; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
 
         /* --- Job Listings Grid --- */
         .jobs-container { max-width: 1400px; margin: 3rem auto; padding: 0 5%; }
-        .job-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 2rem; }
+        .job-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
         
         .job-card { 
             background: white; border: 1px solid #eee; border-radius: 12px; transition: 0.3s;
@@ -40,26 +42,30 @@
         }
         .job-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); border-color: #C9A962; }
         
-        .job-content { padding: 2.5rem; flex-grow: 1; }
-        .sector-tag { color: #C9A962; font-weight: 700; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 0.8rem; display: block; }
-        .job-card h3 { color: #0A192F; font-size: 1.2rem; margin-bottom: 1rem; }
-        .job-card p { font-size: 0.85rem; color: #666; line-height: 1.6; }
-        .apply-footer { padding: 1.2rem 2.5rem; background: #f9f9f9; font-size: 0.75rem; font-weight: 700; color: #0A192F; text-transform: uppercase; border-top: 1px solid #eee; }
+        .job-content { padding: 2rem; flex-grow: 1; }
+        .sector-tag { color: #C9A962; font-weight: 700; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 0.5rem; display: block; }
+        .job-card h3 { color: #0A192F; font-size: 1.1rem; margin-bottom: 0.8rem; line-height: 1.3; }
+        .job-card p { font-size: 0.85rem; color: #666; line-height: 1.5; }
+        .apply-footer { padding: 1rem 2rem; background: #f9f9f9; font-size: 0.75rem; font-weight: 700; color: #0A192F; text-transform: uppercase; border-top: 1px solid #eee; }
 
-        /* --- Exact Footer --- */
-        footer { background: #0A192F; color: #ffffff; padding: 5rem 5% 2rem; font-size: 0.85rem; }
-        .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 4rem; }
-        .footer-column h4 { color: #C9A962; margin-bottom: 1.5rem; font-size: 0.9rem; text-transform: uppercase; }
+        /* --- Footer --- */
+        footer { background: #0A192F; color: #ffffff; padding: 4rem 5% 2rem; font-size: 0.85rem; }
+        .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 3rem; }
+        .footer-column h4 { color: #C9A962; margin-bottom: 1.2rem; font-size: 0.9rem; text-transform: uppercase; }
         .footer-links { list-style: none; }
-        .footer-links li { margin-bottom: 0.8rem; }
         .footer-links a { color: #ffffff; text-decoration: none; opacity: 0.7; transition: 0.3s; }
-        .footer-links a:hover { opacity: 1; color: #C9A962; }
-        .footer-bottom { max-width: 1200px; margin: 4rem auto 0; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1); display: flex; justify-content: space-between; align-items: center; opacity: 0.6; }
+        .footer-bottom { max-width: 1200px; margin: 3rem auto 0; padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.1); text-align: center; opacity: 0.6; }
 
+        /* --- Mobile Responsiveness --- */
         @media (max-width: 992px) {
-            .footer-container { grid-template-columns: 1fr 1fr; }
-            .job-grid { grid-template-columns: 1fr; }
             .menu-toggle { display: block; }
+            .nav-links { 
+                display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: #fff; padding: 2rem; box-shadow: 0 10px 15px rgba(0,0,0,0.1); gap: 1.5rem; text-align: center;
+            }
+            .nav-links.active { display: flex; }
+            .footer-container { grid-template-columns: 1fr; }
+            .job-grid { grid-template-columns: 1fr; }
+            .filter-section { top: 68px; }
         }
     </style>
 </head>
@@ -72,7 +78,7 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html#home">Home</a></li>
                 <li><a href="index.html#services">Services</a></li>
-                <li><a href="fc.html">Finance Calculator</a></li>
+                <li><a href="fc.html">Finance</a></li>
                 <li><a href="careers.html" style="color:#C9A962">Careers</a></li>
                 <li><a href="index.html#about">About</a></li>
             </ul>
@@ -81,102 +87,20 @@
 
     <header class="career-hero">
         <div class="hero-text">
-            <h1>Global Talent Opportunities</h1>
-            <p>Join a multi-sector powerhouse driving innovation in Europe and beyond.</p>
+            <h1>Join Our Global Mission</h1>
+            <p>Deploy your expertise across 50+ specialized sectors in Europe's most dynamic multi-sector group.</p>
         </div>
     </header>
 
     <div class="filter-section">
-        <input type="text" id="jobSearch" placeholder="Filter by job title or sector (e.g. Finance, Logistics)..." onkeyup="filterJobs()">
+        <input type="text" id="jobSearch" placeholder="Filter by job title or sector..." onkeyup="filterJobs()">
     </div>
+
+    
 
     <div class="jobs-container">
         <div class="job-grid" id="jobGrid">
-            
-            <script>
-                const jobs = [
-                    { title: "Quantitative Fund Manager", sector: "Finance", jd: "Lead alpha-generation strategies and algorithmic portfolio management for institutional assets." },
-                    { title: "Autonomous Fleet Controller", sector: "Logobile/Logistics", jd: "Manage Level 4 autonomous vehicle networks and real-time logistics telemetry." },
-                    { title: "Luxury Asset Acquisition Director", sector: "Hospitality/Finance", jd: "Identify and negotiate high-value real estate and luxury hotel assets across Europe." },
-                    { title: "Supply Chain Architect", sector: "Logistics", jd: "Design high-velocity distribution networks using predictive spoke-and-hub modeling." },
-                    { title: "Biotech Infrastructure Engineer", sector: "Healthcare", jd: "Develop and maintain specialized clinical research labs and bio-medical facilities." },
-                    { title: "Intermodal Freight Planner", sector: "Logistics", jd: "Optimize multi-modal transit corridors between rail, road, and sea assets." },
-                    { title: "EV Charging Network Strategist", sector: "Automobile", jd: "Design urban charging infrastructure and smart-grid integration for EV fleets." },
-                    { title: "Actuarial Risk Analyst", sector: "Insurance/Finance", jd: "Model complex risk variables for large-scale enterprise reinsurance programs." },
-                    { title: "Michelin Operations Director", sector: "Hospitality", jd: "Maintain the highest culinary and operational standards across 5-star fine dining venues." },
-                    { title: "Clinical Facility Manager", sector: "Healthcare", jd: "Ensure 100% technical uptime and ISO compliance for private surgical clinics." },
-                    { title: "Blockchain Customs Specialist", sector: "Logistics", jd: "Implement immutable ledger systems for cross-border customs and documentation." },
-                    { title: "Algorithmic Trading Developer", sector: "Finance", jd: "Code low-latency execution systems and high-frequency trading platforms." },
-                    { title: "Executive Search Consultant", sector: "Consultancy", jd: "Source and place C-suite talent within the NCG global partnership network." },
-                    { title: "Precision Surgical Tech Manager", sector: "Healthcare", jd: "Oversee the calibration and maintenance of advanced robotic surgical systems." },
-                    { title: "Smart-Home Integration Specialist", sector: "Hospitality", jd: "Integrate IoT 'invisible' service technology into luxury residential developments." },
-                    { title: "Cold-Chain Fresh Operations Manager", sector: "FMCG/Logistics", jd: "Manage high-speed distribution for temperature-sensitive consumer goods." },
-                    { title: "Battery Lifecycle Scientist", sector: "Automobile", jd: "Lead research into EV battery recycling and second-life energy storage models." },
-                    { title: "M&A Financial Advisor", sector: "Finance/Consultancy", jd: "Advise on corporate deal-flow, debt restructuring, and cross-border acquisitions." },
-                    { title: "Regulatory Compliance Auditor", sector: "Insurance/Healthcare", jd: "Conduct cross-sector audits to ensure Solvency II and medical ISO compliance." },
-                    { title: "Category Management Lead", sector: "FMCG", jd: "Optimize product shelf-velocity and retail channel penetration for consumer brands." },
-                    { title: "V2G Energy Grid Coordinator", sector: "Automobile", jd: "Optimize bidirectional energy flow between autonomous fleets and municipal grids." },
-                    { title: "Inventory Velocity Analyst", sector: "Logistics/FMCG", jd: "Analyze SKU turnover data to minimize bottlenecks in continental distribution." },
-                    { title: "High-Bay Warehouse Automation Engineer", sector: "Logistics", jd: "Design and manage robotic ASRS systems for high-capacity European hubs." },
-                    { title: "Private Equity Associate", sector: "Finance", jd: "Model asset valuations and market potential for equity-controlled investments." },
-                    { title: "Digital Health Systems Architect", sector: "Healthcare", jd: "Architect hospital information systems and telemedicine infrastructure." },
-                    { title: "Revenue Yield Specialist (RevPAR)", sector: "Hospitality", jd: "Deploy dynamic pricing models to maximize occupancy and revenue yields." },
-                    { title: "Last-Mile Delivery Coordinator", sector: "Logistics", jd: "Manage the final stage of the consumer supply chain with zero-error precision." },
-                    { title: "Venture Capital Associate", sector: "Finance/Consultancy", jd: "Source and evaluate early-stage startups in the Fintech and Biotech space." },
-                    { title: "ESG Impact Investment Lead", sector: "Finance", jd: "Direct capital toward assets meeting high Environmental and Social standards." },
-                    { title: "Hospitality Concierge Director", sector: "Hospitality", jd: "Define the absolute standard of personal service for ultra-luxury clients." },
-                    { title: "Telematics Data Scientist", sector: "Automobile/Logistics", jd: "Translate real-time vehicle data into actionable fleet safety and efficiency." },
-                    { title: "Genomic Data Center Manager", sector: "Healthcare", jd: "Maintain mission-critical server environments for high-performance bio-data." },
-                    { title: "Brand Expansion Strategist", sector: "FMCG/Consultancy", jd: "Consult on market-entry logic for global premium consumer brands." },
-                    { title: "Customs Engineering Consultant", sector: "Logistics", jd: "Solve complex tariff and regulatory bottlenecks for multi-national trade." },
-                    { title: "Underwriting Risk Specialist", sector: "Insurance", jd: "Lead technical assessment for high-value industrial and marine risk cover." },
-                    { title: "Urban Mobility Consultant", sector: "Automobile", jd: "Collaborate with cities to build autonomous and integrated transit models." },
-                    { title: "Retail Channel Manager", sector: "FMCG", jd: "Strengthen relationships with Tier-1 European retail chains and distributors." },
-                    { title: "Bespoke Residential Property Manager", sector: "Hospitality", jd: "Manage high-end residential assets with a hospitality-first mindset." },
-                    { title: "Biomedical Asset Appraiser", sector: "Healthcare/Finance", jd: "Perform fiscal and technical valuation of medical infrastructure portfolios." },
-                    { title: "Hedge Fund Compliance Officer", sector: "Finance", jd: "Oversee trading ethics and SEC/ESMA regulatory adherence." },
-                    { title: "Sustainable Packaging Engineer", sector: "FMCG", jd: "Design carbon-neutral and circular-economy packaging for consumer units." },
-                    { title: "Human Capital Optimization Lead", sector: "Consultancy", jd: "Advise on workforce productivity and talent retention for global enterprises." },
-                    { title: "Finished Vehicle Logistics Manager", sector: "Automobile", jd: "Coordinate the JIT distribution of premium automotive units from factory to port." },
-                    { title: "Treasury & Liquidity Manager", sector: "Finance", jd: "Manage global cash-flow and currency hedging for the NCG group." },
-                    { title: "Patient Experience Flow Analyst", sector: "Healthcare", jd: "Analyze and optimize the clinical journey for surgical and diagnostic patients." },
-                    { title: "Heritage Architecture Consultant", sector: "Hospitality", jd: "Advise on the restoration and modernizing of landmark hotel assets." },
-                    { title: "Macroeconomic Research Lead", sector: "Finance", jd: "Provide high-level economic intelligence for the NCG investment board." },
-                    { title: "Port & Rail Infrastructure Director", sector: "Logistics", jd: "Direct the development and operations of intermodal port assets." },
-                    { title: "Cyber-Security Risk Underwriter", sector: "Insurance", jd: "Design insurance frameworks to protect digital enterprise assets." },
-                    { title: "Corporate Transformation Advisor", sector: "Consultancy", jd: "Lead large-scale structural and cultural shifts for multi-national firms." }
-                ];
-
-                const grid = document.getElementById('jobGrid');
-                jobs.forEach(job => {
-                    const card = document.createElement('a');
-                    card.className = "job-card";
-                    card.href = `mailto:hr@nordiccontinentalgroup.com?subject=Application: ${job.title}`;
-                    card.setAttribute('data-title', job.title.toLowerCase());
-                    card.setAttribute('data-sector', job.sector.toLowerCase());
-                    
-                    card.innerHTML = `
-                        <div class="job-content">
-                            <span class="sector-tag">${job.sector}</span>
-                            <h3>${job.title}</h3>
-                            <p>${job.jd}</p>
-                        </div>
-                        <div class="apply-footer">Apply for this Position</div>
-                    `;
-                    grid.appendChild(card);
-                });
-
-                function filterJobs() {
-                    let input = document.getElementById('jobSearch').value.toLowerCase();
-                    let cards = document.getElementsByClassName('job-card');
-                    for (let i = 0; i < cards.length; i++) {
-                        let title = cards[i].getAttribute('data-title');
-                        let sector = cards[i].getAttribute('data-sector');
-                        cards[i].style.display = (title.includes(input) || sector.includes(input)) ? "" : "none";
-                    }
-                }
-            </script>
-        </div>
+            </div>
     </div>
 
     <footer>
@@ -187,8 +111,7 @@
             <div class="footer-column">
                 <h4>Navigate</h4>
                 <ul class="footer-links">
-                    <li><a href="index.html#home">Home</a></li>
-                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="careers.html">Careers</a></li>
                 </ul>
             </div>
@@ -197,25 +120,110 @@
                 <ul class="footer-links">
                     <li><a href="logistics.html">Logistics</a></li>
                     <li><a href="finance.html">Finance</a></li>
-                    <li><a href="healthcare.html">Healthcare</a></li>
-                    <li><a href="insurance.html">Insurance</a></li>
                 </ul>
             </div>
             <div class="footer-column">
                 <h4>Contact</h4>
-                <p>Headquarters:<br><i>Nordic Continental Group, FIRST Rotterdam, Weena 750‑760, 3013 CK Rotterdam, Netherlands</i></p>
-                <br>
-                <p>Email: <i>info@nordiccontinental.com</i></p>
+                <p>Headquarters:<br>FIRST Rotterdam, Weena 750, NL</p>
             </div>
         </div>
         <div class="footer-bottom">
             <p>&copy; 2015 Nordic Continental Group. All rights reserved.</p>
-            <div style="display: flex; gap: 1.5rem;">
-                <a href="Privacy.html" style="color:white; text-decoration:none; opacity: 0.8;">Privacy</a>
-                <a href="Privacy.html" style="color:white; text-decoration:none; opacity: 0.8;">Terms</a>
-            </div>
         </div>
     </footer>
 
+    <script>
+        // --- 1. Mobile Menu Toggle ---
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.getElementById('navLinks');
+        menuBtn.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+
+        // --- 2. Master Job List (50 Titles) ---
+        const jobs = [
+            { title: "Quantitative Fund Manager", sector: "Finance", jd: "Oversee algorithmic trading strategies and high-frequency portfolio assets." },
+            { title: "Autonomous Fleet Controller", sector: "Automobile/Logistics", jd: "Monitor real-time Level 4 autonomous vehicle transport networks." },
+            { title: "Luxury Asset Acquisition Director", sector: "Hospitality/Finance", jd: "Lead negotiations for high-value real estate and landmark hotel portfolios." },
+            { title: "Supply Chain Architect", sector: "Logistics", jd: "Design global spoke-and-hub models using advanced predictive analytics." },
+            { title: "Biotech Infrastructure Engineer", sector: "Healthcare", jd: "Manage Level 3 Bio-lab environments and medical research facilities." },
+            { title: "Intermodal Freight Planner", sector: "Logistics", jd: "Coordinate cross-border transit via rail, road, and sea corridors." },
+            { title: "EV Charging Network Strategist", sector: "Automobile", jd: "Scale urban charging infrastructure and smart-grid energy solutions." },
+            { title: "Actuarial Risk Analyst", sector: "Insurance/Finance", jd: "Model systemic risk and develop enterprise reinsurance structures." },
+            { title: "Michelin Operations Director", sector: "Hospitality", jd: "Ensure culinary and service excellence across elite F&B portfolios." },
+            { title: "Clinical Facility Manager", sector: "Healthcare", jd: "Maintain ISO-certified technical uptime for private surgical centers." },
+            { title: "Blockchain Customs Specialist", sector: "Logistics", jd: "Deploy immutable ledger systems for international documentation." },
+            { title: "Algorithmic Trading Developer", sector: "Finance", jd: "Build low-latency execution systems for quantitative market assets." },
+            { title: "Executive Search Consultant", sector: "Consultancy", jd: "Source C-suite talent across the group's global multi-sector verticals." },
+            { title: "Precision Surgical Tech Manager", sector: "Healthcare", jd: "Calibrate and maintain advanced robotic surgical imaging suites." },
+            { title: "Smart-Home Integration Specialist", sector: "Hospitality", jd: "Engineer IoT service layers for luxury residential developments." },
+            { title: "Cold-Chain Fresh Operations Manager", sector: "FMCG/Logistics", jd: "Manage temperature-controlled transit for high-velocity consumer goods." },
+            { title: "Battery Lifecycle Scientist", sector: "Automobile", jd: "Research sustainable EV battery recycling and second-life systems." },
+            { title: "M&A Financial Advisor", sector: "Finance/Consultancy", jd: "Advise on corporate deal-flow and cross-border fiscal restructuring." },
+            { title: "Regulatory Compliance Auditor", sector: "Insurance/Healthcare", jd: "Audit global operations for Solvency II and medical regulatory adherence." },
+            { title: "Category Management Lead", sector: "FMCG", jd: "Analyze retail channel data to drive brand penetration and shelf-velocity." },
+            { title: "V2G Energy Grid Coordinator", sector: "Automobile", jd: "Optimize energy flow between autonomous fleets and municipal grids." },
+            { title: "Inventory Velocity Analyst", sector: "Logistics/FMCG", jd: "Reduce distribution bottlenecks through SKU-level predictive modeling." },
+            { title: "High-Bay Warehouse Automation Engineer", sector: "Logistics", jd: "Design robotic ASRS systems for large-scale European hubs." },
+            { title: "Private Equity Associate", sector: "Finance", jd: "Analyze equity-controlled asset potential and fiscal valuations." },
+            { title: "Digital Health Systems Architect", sector: "Healthcare", jd: "Build hospital information systems and telemedicine infrastructure." },
+            { title: "Revenue Yield Specialist (RevPAR)", sector: "Hospitality", jd: "Maximize revenue through dynamic occupancy and room-yield modeling." },
+            { title: "Last-Mile Delivery Coordinator", sector: "Logistics", jd: "Oversee the final leg of the supply chain with zero-error precision." },
+            { title: "Venture Capital Associate", sector: "Finance/Consultancy", jd: "Evaluate early-stage startups in Fintech and Biotech sectors." },
+            { title: "ESG Impact Investment Lead", sector: "Finance", jd: "Direct capital toward assets meeting high sustainability criteria." },
+            { title: "Hospitality Concierge Director", sector: "Hospitality", jd: "Set the standard for personal service in our ultra-luxury residences." },
+            { title: "Telematics Data Scientist", sector: "Automobile/Logistics", jd: "Translate fleet telemetry into actionable operational efficiency." },
+            { title: "Genomic Data Center Manager", sector: "Healthcare", jd: "Maintain high-security server hubs for medical genomic research." },
+            { title: "Brand Expansion Strategist", sector: "FMCG/Consultancy", jd: "Lead market-entry strategies for premium brands in new territories." },
+            { title: "Customs Engineering Consultant", sector: "Logistics", jd: "Solve complex trade tariff and regulatory challenges for global trade." },
+            { title: "Underwriting Risk Specialist", sector: "Insurance", jd: "Manage risk selection for high-value industrial and marine cover." },
+            { title: "Urban Mobility Consultant", sector: "Automobile", jd: "Design smart-city transit models and autonomous vehicle corridors." },
+            { title: "Retail Channel Manager", sector: "FMCG", jd: "Strengthen ties with Tier-1 European retailers and distributors." },
+            { title: "Bespoke Residential Property Manager", sector: "Hospitality", jd: "Manage private luxury assets with a 5-star service approach." },
+            { title: "Biomedical Asset Appraiser", sector: "Healthcare/Finance", jd: "Assess the fiscal value of high-spec medical infrastructure." },
+            { title: "Hedge Fund Compliance Officer", sector: "Finance", jd: "Enforce trading ethics and global SEC/ESMA regulatory compliance." },
+            { title: "Sustainable Packaging Engineer", sector: "FMCG", jd: "Engineer circular-economy packaging for consumer product lines." },
+            { title: "Human Capital Optimization Lead", sector: "Consultancy", jd: "Optimize workforce productivity through data-driven HR strategies." },
+            { title: "Finished Vehicle Logistics Manager", sector: "Automobile", jd: "Manage JIT distribution for premium automotive factory units." },
+            { title: "Treasury & Liquidity Manager", sector: "Finance", jd: "Manage cash-flow and currency hedging across group verticals." },
+            { title: "Patient Experience Flow Analyst", sector: "Healthcare", jd: "Audit and optimize clinical journeys in our surgical centers." },
+            { title: "Heritage Architecture Consultant", sector: "Hospitality", jd: "Oversee restoration logic for historic landmark hospitality assets." },
+            { title: "Macroeconomic Research Lead", sector: "Finance", jd: "Provide fiscal intelligence for the group's global investment board." },
+            { title: "Port & Rail Infrastructure Director", sector: "Logistics", jd: "Manage infrastructure and growth for the group's intermodal ports." },
+            { title: "Cyber-Security Risk Underwriter", sector: "Insurance", jd: "Develop insurance frameworks for enterprise-level digital risk." },
+            { title: "Corporate Transformation Advisor", sector: "Consultancy", jd: "Lead structural and digital shifts for multinational clients." }
+        ];
+
+        // --- 3. Render Function ---
+        const grid = document.getElementById('jobGrid');
+        function renderJobs(filteredList) {
+            grid.innerHTML = '';
+            filteredList.forEach(job => {
+                const card = document.createElement('a');
+                card.className = "job-card";
+                card.href = `mailto:hr@nordiccontinentalgroup.com?subject=Application: ${job.title}`;
+                card.innerHTML = `
+                    <div class="job-content">
+                        <span class="sector-tag">${job.sector}</span>
+                        <h3>${job.title}</h3>
+                        <p>${job.jd}</p>
+                    </div>
+                    <div class="apply-footer">Click to Apply</div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Initial Load
+        renderJobs(jobs);
+
+        // --- 4. Search Filter Function ---
+        function filterJobs() {
+            let val = document.getElementById('jobSearch').value.toLowerCase();
+            const filtered = jobs.filter(j => 
+                j.title.toLowerCase().includes(val) || 
+                j.sector.toLowerCase().includes(val)
+            );
+            renderJobs(filtered);
+        }
+    </script>
 </body>
 </html>
