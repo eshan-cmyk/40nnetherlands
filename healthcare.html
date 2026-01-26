@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare & Life Science Infrastructure | Nordic Continental Group</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- Shared Framework --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; color: #333; line-height: 1.6; background: #fdfdfd; overflow-x: hidden; }
+        
+        /* --- Navigation --- */
+        nav { background: #ffffff; padding: 1.2rem 5%; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); position: sticky; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 40px; width: auto; display: block; }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+        .nav-links a { color: #0A192F; text-decoration: none; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; transition: 0.3s; }
+        .nav-links a:hover { color: #007A7A; } 
+
+        .menu-toggle { display: none; background: none; border: none; font-size: 1.8rem; color: #0A192F; cursor: pointer; }
+
+        /* --- Healthcare Hero with Background Image Support --- */
+        .healthcare-hero {
+            /* Replace 'img/hero-healthcare.jpg' with your actual image path */
+            background: linear-gradient(135deg, rgba(10, 25, 47, 0.9) 0%, rgba(0, 122, 122, 0.7) 100%), 
+                        url('img/hero-healthcare.jpg') center/cover no-repeat;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 0 5%;
+        }
+        .hero-title h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 1.5rem; letter-spacing: -1px; text-transform: uppercase; }
+        .hero-title p { max-width: 850px; margin: 0 auto; font-size: 1.1rem; font-weight: 300; opacity: 0.9; line-height: 1.8; }
+
+        /* --- Clinical Telemetry --- */
+        .asset-telemetry { max-width: 1300px; margin: -60px auto 6rem; padding: 0 5%; position: relative; z-index: 10; }
+        .telemetry-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+        .telemetry-card { background: #ffffff; padding: 2.5rem; border-top: 5px solid #007A7A; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .telemetry-card h4 { font-size: 0.75rem; text-transform: uppercase; color: #888; letter-spacing: 2px; margin-bottom: 0.5rem; }
+        .telemetry-card .value { font-size: 2rem; font-weight: 700; color: #0A192F; display: block; }
+        .telemetry-card .label { font-size: 0.85rem; color: #007A7A; font-weight: 600; }
+
+        /* --- Service Matrix --- */
+        .service-matrix { padding: 6rem 5%; max-width: 1400px; margin: 0 auto; }
+        .matrix-header { text-align: center; margin-bottom: 4rem; }
+        .matrix-header h2 { font-size: 2.5rem; color: #0A192F; margin-bottom: 1rem; }
+        
+        .matrix-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 3rem; }
+        .service-module { background: white; padding: 3.5rem; border-radius: 10px; border: 1px solid #e0e6ed; box-shadow: 0 5px 15px rgba(0,0,0,0.02); }
+        .service-module h3 { font-size: 1.6rem; margin-bottom: 1.5rem; color: #007A7A; border-bottom: 2px solid #007A7A; display: inline-block; padding-bottom: 5px; }
+        .service-module p { font-size: 0.95rem; color: #555; margin-bottom: 2rem; }
+        
+        .asset-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .asset-list li { font-size: 0.8rem; font-weight: 700; color: #444; display: flex; align-items: center; gap: 8px; }
+        .asset-list li::before { content: "•"; color: #007A7A; font-size: 1.5rem; }
+
+        /* --- Framework Section --- */
+        .flow-section { background: #0A192F; color: white; padding: 8rem 5%; text-align: center; }
+        .flow-content h2 { font-size: 2.5rem; margin-bottom: 4rem; color: #C9A962; }
+        .framework-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; max-width: 1200px; margin: 0 auto; }
+        .framework-item { background: rgba(255,255,255,0.05); padding: 3rem; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s; }
+        .framework-item:hover { background: rgba(255,255,255,0.1); }
+        .framework-item h4 { color: #C9A962; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 1px; }
+        .framework-item p { font-size: 0.9rem; opacity: 0.8; }
+
+        /* --- Footer --- */
+        footer { background: #0A192F; color: #ffffff; padding: 5rem 5% 2rem; font-size: 0.85rem; }
+        .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 4rem; }
+        .footer-column h4 { color: #C9A962; margin-bottom: 1.5rem; font-size: 0.9rem; text-transform: uppercase; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 0.8rem; }
+        .footer-links a { color: #ffffff; text-decoration: none; opacity: 0.7; transition: 0.3s; }
+        .footer-bottom { max-width: 1200px; margin: 4rem auto 0; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1); display: flex; justify-content: space-between; align-items: center; opacity: 0.6; }
+
+        @media (max-width: 992px) {
+            .menu-toggle { display: block; }
+            .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: white; flex-direction: column; padding: 2rem; text-align: center; }
+            .nav-links.active { display: flex; }
+            .framework-grid, .matrix-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo"><a href="index.html"><img src="img/logo.png" alt="NCG Logo"></a></div>
+            <button class="menu-toggle" id="mobile-menu-btn">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="finance.html">Finance</a></li>
+                <li><a href="logistics.html">Logistics</a></li>
+                <li><a href="index.html#about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="healthcare-hero">
+        <div class="hero-title">
+            <h1>Engineering Clinical Excellence</h1>
+            <p>Advancing the medical frontier through strategic clinical facility investment and biotechnological asset management across the European health corridor.</p>
+        </div>
+    </header>
+
+    <section class="asset-telemetry">
+        <div class="telemetry-grid">
+            <div class="telemetry-card">
+                <h4>Portfolio Valuation</h4>
+                <span class="value">€1.2B</span>
+                <span class="label">Medical Real Estate</span>
+            </div>
+            <div class="telemetry-card">
+                <h4>Facility Standard</h4>
+                <span class="value">Level 3</span>
+                <span class="label">Bio-Laboratory Assets</span>
+            </div>
+            <div class="telemetry-card">
+                <h4>Clinical Reach</h4>
+                <span class="value">12,500</span>
+                <span class="label">Critical Care Units</span>
+            </div>
+            <div class="telemetry-card">
+                <h4>Compliance</h4>
+                <span class="value">ISO 13485</span>
+                <span class="label">Certified Systems</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-matrix">
+        <div class="matrix-header">
+            <h2>Medical Infrastructure Verticals</h2>
+            <p>Integrating architectural precision with life-science research capabilities.</p>
+        </div>
+        
+        <div class="matrix-grid">
+            
+            <div class="service-module">
+                <h3>Specialized Real Estate</h3>
+                <p>Strategic management of high-spec clinical environments, including private surgical clinics and diagnostic centers. We ensure 100% technical uptime and stringent regulatory compliance.</p>
+                <ul class="asset-list">
+                    <li>Smart Hospitals</li>
+                    <li>Surgical Suites</li>
+                    <li>Diagnostic Hubs</li>
+                    <li>Rehab Centers</li>
+                    <li>Critical Care Tech</li>
+                    <li>Redundant Power</li>
+                </ul>
+            </div>
+
+            <div class="service-module" style="border-top-color: #0A192F;">
+                <h3>Life Science Research</h3>
+                <p>Deploying infrastructure for the biotech sector. We provide the physical laboratory foundations required for genomic sequencing and pharmaceutical development.</p>
+                <ul class="asset-list">
+                    <li>Biotech Incubators</li>
+                    <li>R&D Lab Space</li>
+                    <li>Cold-Chain Storage</li>
+                    <li>Vaccine Logistics</li>
+                    <li>Trial Facilities</li>
+                    <li>Data Bio-Centers</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="flow-section">
+        <div class="flow-content">
+            <h2>The Healthcare Continuum</h2>
+            
+            <div class="framework-grid">
+                <div class="framework-item">
+                    <h4>Precision Environments</h4>
+                    <p>Constructing high-spec modular spaces designed specifically for robotic surgery and advanced diagnostic imaging.</p>
+                </div>
+                <div class="framework-item">
+                    <h4>Biotech Acceleration</h4>
+                    <p>Providing essential laboratory infrastructure that allows emerging medical research firms to scale rapidly.</p>
+                </div>
+                <div class="framework-item">
+                    <h4>Digital Health Logic</h4>
+                    <p>Integrating medical data hubs with hospital information systems to optimize resource allocation and patient safety.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <p>Nordic Continental Group is a multi-sector powerhouse based in Europe, driving innovation across logistics and finance.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Navigate</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#services">Our Sectors</a></li>
+                    <li><a href="careers.html#careers">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Sectors</h4>
+                <ul class="footer-links">
+                    <li><a href="logistics.html">Logistics</a></li>
+                    <li><a href="finance.html">Finance</a></li>
+                    <li><a href="healthcare.html">Healthcare</a></li>
+                    <li><a href="insurance.html">Insurance</a></li>
+                    <li><a href="consultancy.html">Consultancy</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <p>Headquarters:<br><i>Nordic Continental Group, FIRST Rotterdam, Weena 750‑760, 3013 CK Rotterdam, Netherlands</i></p>
+                <br>
+                <p>Email: <i>info@nordiccontinental.com</i></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2015 Nordic Continental Group. All rights reserved.</p>
+            <div style="display: flex; gap: 1.5rem;">
+                <a href="Privacy.html" style="color:white; text-decoration:none;">Privacy Policy</a>
+                <a href="Privacy.html" style="color:white; text-decoration:none;">Terms of Use</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.getElementById('navLinks');
+        menuBtn.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+    </script>
+</body>
+</html>

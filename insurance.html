@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risk Management & Insurance | Nordic Continental Group</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- Shared Framework --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; color: #333; line-height: 1.6; background: #ffffff; overflow-x: hidden; }
+        
+        /* --- Navigation & Mobile Fixes --- */
+        nav { background: #ffffff; padding: 1.2rem 5%; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); position: sticky; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 40px; width: auto; display: block; }
+        
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+        .nav-links a { color: #0A192F; text-decoration: none; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; transition: 0.3s; }
+        .nav-links a:hover { color: #C9A962; }
+
+        .menu-toggle { display: none; background: none; border: none; font-size: 1.8rem; color: #0A192F; cursor: pointer; }
+
+        /* --- Insurance Hero Section --- */
+        .insurance-hero {
+            background: linear-gradient(135deg, rgba(10, 25, 47, 0.9) 0%, rgba(10, 25, 47, 0.7) 100%), 
+                        url('img/hero-insurance.jpg') center/cover no-repeat;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 0 5%;
+        }
+        .hero-title h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 1.5rem; letter-spacing: -1px; }
+        .hero-title p { max-width: 850px; margin: 0 auto; font-size: 1.1rem; font-weight: 300; opacity: 0.85; line-height: 1.8; }
+
+        /* --- Risk Telemetry (Insurance Stats) --- */
+        .asset-telemetry { max-width: 1300px; margin: -60px auto 6rem; padding: 0 5%; position: relative; z-index: 10; }
+        .telemetry-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+        .telemetry-card { background: #ffffff; padding: 2.5rem; border-top: 5px solid #C9A962; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .telemetry-card h4 { font-size: 0.75rem; text-transform: uppercase; color: #888; letter-spacing: 2px; margin-bottom: 0.5rem; }
+        .telemetry-card .value { font-size: 2rem; font-weight: 700; color: #0A192F; display: block; }
+        .telemetry-card .label { font-size: 0.85rem; color: #C9A962; font-weight: 600; }
+
+        /* --- Service Matrix --- */
+        .service-matrix { padding: 6rem 5%; max-width: 1400px; margin: 0 auto; }
+        .matrix-header { text-align: center; margin-bottom: 4rem; }
+        .matrix-header h2 { font-size: 2.5rem; color: #0A192F; margin-bottom: 1rem; }
+        .matrix-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 3rem; }
+        .service-module h3 { font-size: 1.3rem; margin-bottom: 1rem; color: #0A192F; display: flex; align-items: center; gap: 10px; }
+        .service-module h3::before { content: ''; width: 20px; height: 2px; background: #C9A962; }
+        .service-module p { font-size: 0.9rem; color: #666; margin-bottom: 1.5rem; text-align: justify; }
+        .asset-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .asset-list li { font-size: 0.8rem; font-weight: 600; color: #444; padding: 8px; background: #f4f7f9; border-radius: 4px; }
+
+        /* --- Actuarial Framework Section --- */
+        .flow-section { background: #0A192F; color: white; padding: 8rem 5%; display: flex; justify-content: center; }
+        .flow-content { max-width: 900px; width: 100%; }
+        .flow-content h2 { font-size: 2.5rem; margin-bottom: 2rem; color: #C9A962; text-align: center; }
+        .tier-system { display: flex; flex-direction: column; gap: 1.5rem; }
+        .tier-item { border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1.5rem; }
+        .tier-item strong { color: #C9A962; display: block; margin-bottom: 0.5rem; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
+
+        /* --- Footer --- */
+        footer { background: #0A192F; color: #ffffff; padding: 5rem 5% 2rem; font-size: 0.85rem; }
+        .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 4rem; }
+        .footer-column h4 { color: #C9A962; margin-bottom: 1.5rem; font-size: 0.9rem; text-transform: uppercase; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 0.8rem; }
+        .footer-links a { color: #ffffff; text-decoration: none; opacity: 0.7; transition: 0.3s; }
+        .footer-links a:hover { opacity: 1; color: #C9A962; }
+        .footer-bottom { max-width: 1200px; margin: 4rem auto 0; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1); display: flex; justify-content: space-between; align-items: center; opacity: 0.6; }
+
+        /* --- Responsive Queries --- */
+        @media (max-width: 992px) {
+            .menu-toggle { display: block; }
+            .nav-links { 
+                display: none; position: absolute; top: 100%; left: 0; width: 100%; 
+                background: white; flex-direction: column; padding: 2rem; gap: 1.5rem; 
+                box-shadow: 0 10px 10px rgba(0,0,0,0.1); text-align: center;
+            }
+            .nav-links.active { display: flex; }
+            .footer-container { grid-template-columns: 1fr 1fr; }
+            .matrix-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html"><img src="img/logo.png" alt="Nordic Continental Group"></a>
+            </div>
+            <button class="menu-toggle" id="mobile-menu-btn" aria-label="Toggle Navigation Menu">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="finance.html">Finance</a></li>
+                <li><a href="index.html#careers">Careers</a></li>
+                <li><a href="index.html#about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="insurance-hero">
+        <div class="hero-title">
+            <h1>Strategic Risk Underwriting</h1>
+            <p>Deploying advanced actuarial modeling and multi-layered reinsurance structures. Nordic Continental Group secures enterprise capital and asset longevity through analytical precision and global solvency compliance.</p>
+        </div>
+    </header>
+
+    <section class="asset-telemetry">
+        <div class="telemetry-grid">
+            <div class="telemetry-card">
+                <h4>Solvency Ratio</h4>
+                <span class="value">240%</span>
+                <span class="label">S&P 'AA' Rated</span>
+            </div>
+            <div class="telemetry-card">
+                <h4>Risk Assets Underwritten</h4>
+                <span class="value">€2.8B</span>
+                <span class="label">Gross Book Value</span>
+            </div>
+            <div class="telemetry-card">
+                <h4>Claims Efficiency</h4>
+                <span class="value">98.2%</span>
+                <span class="label">Settlement Performance</span>
+            </div>
+            <div class="telemetry-card">
+                <h4>Reinsurance Capacity</h4>
+                <span class="value">Global</span>
+                <span class="label">Tier-1 Syndicates</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-matrix" id="services">
+        <div class="matrix-header">
+            <h2>Underwriting Specializations</h2>
+            <p>Bridging traditional indemnity with modern predictive risk transfer.</p>
+        </div>
+        <div class="matrix-grid">
+            <div class="service-module">
+                <h3>Enterprise & Captive Management</h3>
+                <p>Tailoring bespoke captive structures for multinational conglomerates to internalize risk and optimize premium flow. We provide full actuarial oversight and regulatory reporting for complex risk pools.</p>
+                <ul class="asset-list">
+                    <li>Self-Insurance Pools</li>
+                    <li>ART Mechanisms</li>
+                    <li>Premium Modeling</li>
+                    <li>Regulatory Filing</li>
+                </ul>
+            </div>
+            <div class="service-module">
+                <h3>Industrial & Marine Indemnity</h3>
+                <p>Securing high-value physical assets across global trade corridors. Our coverage includes multi-modal cargo protection, professional liability, and parametric weather-risk solutions for logistics infrastructure.</p>
+                <ul class="asset-list">
+                    <li>Hull & Machinery</li>
+                    <li>Professional D&O</li>
+                    <li>Cyber-Resilience</li>
+                    <li>Political Risk cover</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="flow-section">
+        <div class="flow-content">
+            <h2>The Actuarial Framework</h2>
+            <div class="tier-system">
+                <div class="tier-item">
+                    <strong>Phase I: Probabilistic Modeling</strong>
+                    <p>Utilizing Monte Carlo simulations to forecast loss frequency and severity across diverse industry portfolios to ensure surgical premium pricing.</p>
+                </div>
+                <div class="tier-item">
+                    <strong>Phase II: Risk Mitigation Integration</strong>
+                    <p>Embedding real-time telemetry and IoT sensors into insured assets to actively reduce incident probability and lower renewal costs.</p>
+                </div>
+                <div class="tier-item">
+                    <strong>Phase III: Capital Syndication</strong>
+                    <p>Securing high-limit excess layers through a diversified panel of global reinsurers to provide absolute balance sheet protection for our clients.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <p>Nordic Continental Group is a multi-sector powerhouse based in Europe, driving innovation across logistics and finance.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Navigate</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#services">Our Sectors</a></li>
+                    <li><a href="index.html#careers">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Sectors</h4>
+                <ul class="footer-links">
+                    <li><a href="logistics.html">Logistics</a></li>
+                    <li><a href="finance.html">Finance</a></li>
+                    <li><a href="healthcare.html">Healthcare</a></li>
+                    <li><a href="insurance.html">Insurance</a></li>
+                    <li><a href="hospitality.html">Hospitality</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <p>Headquarters:<br><i>Nordic Continental Group, FIRST Rotterdam, Weena 750‑760, 3013 CK Rotterdam, Netherlands</i></p>
+                <br>
+                <p>Email: <i>info@nordiccontinental.com</i></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2015 Nordic Continental Group. All rights reserved.</p>
+            <div style="display: flex; gap: 1.5rem;">
+                <a href="Privacy.html" style="color:white; text-decoration:none;">Privacy Policy</a>
+                <a href="Privacy.html" style="color:white; text-decoration:none;">Terms of Use</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.getElementById('navLinks');
+
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automobile & Smart Mobility | Nordic Continental Group</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- Shared Framework --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; color: #333; line-height: 1.6; background: #f4f4f4; overflow-x: hidden; }
+        
+        /* --- Navigation --- */
+        nav { background: #ffffff; padding: 1.2rem 5%; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); position: sticky; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 40px; width: auto; display: block; }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+        .nav-links a { color: #0A192F; text-decoration: none; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; transition: 0.3s; }
+        .nav-links a:hover { color: #3498DB; } /* Electric Blue Hover */
+
+        .menu-toggle { display: none; background: none; border: none; font-size: 1.8rem; color: #0A192F; cursor: pointer; }
+
+        /* --- Automobile Hero --- */
+        .auto-hero {
+            background: linear-gradient(135deg, rgba(10, 25, 47, 0.95) 0%, rgba(52, 152, 219, 0.6) 100%), 
+                        url('img/hero-automobile.jpg') center/cover no-repeat;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 0 5%;
+        }
+        .hero-title h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 1.5rem; letter-spacing: -1px; text-transform: uppercase; }
+        .hero-title p { max-width: 850px; margin: 0 auto; font-size: 1.1rem; font-weight: 300; opacity: 0.9; line-height: 1.8; }
+
+        /* --- Performance Telemetry --- */
+        .asset-telemetry { max-width: 1300px; margin: -60px auto 6rem; padding: 0 5%; position: relative; z-index: 10; }
+        .telemetry-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+        .telemetry-card { background: #ffffff; padding: 2.5rem; border-top: 5px solid #3498DB; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .telemetry-card h4 { font-size: 0.75rem; text-transform: uppercase; color: #888; letter-spacing: 2px; margin-bottom: 0.5rem; }
+        .telemetry-card .value { font-size: 2rem; font-weight: 700; color: #0A192F; display: block; }
+        .telemetry-card .label { font-size: 0.85rem; color: #3498DB; font-weight: 600; }
+
+        /* --- Service Matrix --- */
+        .service-matrix { padding: 6rem 5%; max-width: 1400px; margin: 0 auto; }
+        .matrix-header { text-align: center; margin-bottom: 4rem; }
+        .matrix-header h2 { font-size: 2.5rem; color: #0A192F; margin-bottom: 1rem; }
+        
+        .matrix-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 3rem; }
+        .service-module { background: white; padding: 3.5rem; border-radius: 4px; border-top: 8px solid #3498DB; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .service-module h3 { font-size: 1.5rem; margin-bottom: 1.5rem; color: #0A192F; }
+        .service-module p { font-size: 0.95rem; color: #555; margin-bottom: 2rem; }
+        
+        .asset-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .asset-list li { font-size: 0.8rem; font-weight: 700; color: #0A192F; display: flex; align-items: center; gap: 8px; }
+        .asset-list li::before { content: "»"; color: #3498DB; font-size: 1.2rem; }
+
+        /* --- Tech Flow Section --- */
+        .flow-section { background: #0A192F; color: white; padding: 8rem 5%; text-align: center; }
+        .flow-content h2 { font-size: 2.5rem; margin-bottom: 4rem; color: #C9A962; }
+        .framework-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; max-width: 1200px; margin: 0 auto; }
+        .framework-item { padding: 2rem; border: 1px solid rgba(255,255,255,0.1); position: relative; }
+        .framework-item h4 { color: #3498DB; margin-bottom: 1.5rem; text-transform: uppercase; font-size: 0.9rem; }
+        .framework-item p { font-size: 0.85rem; opacity: 0.7; }
+
+        /* --- Footer --- */
+        footer { background: #0A192F; color: #ffffff; padding: 5rem 5% 2rem; font-size: 0.85rem; }
+        .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 4rem; }
+        .footer-column h4 { color: #C9A962; margin-bottom: 1.5rem; font-size: 0.9rem; text-transform: uppercase; }
+        .footer-links { list-style: none; }
+        .footer-links a { color: #ffffff; text-decoration: none; opacity: 0.7; transition: 0.3s; }
+        .footer-bottom { max-width: 1200px; margin: 4rem auto 0; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1); display: flex; justify-content: space-between; align-items: center; opacity: 0.6; }
+
+        @media (max-width: 992px) {
+            .framework-grid, .matrix-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo"><a href="index.html"><img src="img/logo.png" alt="Nordic Continental Group"></a></div>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="finance.html">Finance</a></li>
+                <li><a href="logistics.html">Logistics</a></li>
+                <li><a href="index.html#about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="auto-hero">
+        <div class="hero-title">
+            <h1>Driving the Mobility Evolution</h1>
+            <p>Pioneering the transition to sustainable automotive ecosystems. Nordic Continental Group manages high-performance fleet assets and the foundational infrastructure for electric and autonomous transport.</p>
+        </div>
+    </header>
+
+    <section class="asset-telemetry">
+        <div class="telemetry-grid">
+            <div class="telemetry-card">
+                <h4>Fleet Size</h4>
+                <span class="value">8,400+</span>
+                <span class="label">Managed Smart Assets</span>
+            </div>
+            <div class="telemetry-card">
+                <h4>EV Network</h4>
+                <span class="value">1,250</span>
+                <span class="label">High-Speed Charge Nodes</span>
+            </div>
+            <div class="telemetry-card">
+                <h4>Sustainability</h4>
+                <span class="value">Zero</span>
+                <span class="label">Net Tailpipe Goal 2030</span>
+            </div>
+            <div class="telemetry-card">
+                <h4>Manufacturing</h4>
+                <span class="value">Tier 1</span>
+                <span class="label">Supply Chain Partner</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-matrix">
+        <div class="matrix-header">
+            <h2>Automotive Core Pillars</h2>
+            <p>Synchronizing precision engineering with digital mobility platforms.</p>
+        </div>
+        
+
+[Image of the electric vehicle powertrain components]
+
+        <div class="matrix-grid">
+            
+            <div class="service-module">
+                <h3>EV Infrastructure & Energy</h3>
+                <p>Deploying the foundational hardware for the electric era. We invest in high-capacity charging grids and battery lifecycle management systems to ensure the seamless movement of private and commercial EV fleets.</p>
+                <ul class="asset-list">
+                    <li>Hyper-Charge Hubs</li>
+                    <li>V2G Technology</li>
+                    <li>Battery Recycling</li>
+                    <li>Grid Integration</li>
+                    <li>Fleet Telematics</li>
+                    <li>Renewable Sourcing</li>
+                </ul>
+            </div>
+
+            <div class="service-module">
+                <h3>Supply Chain Precision</h3>
+                <p>Managing the "Just-in-Time" logistics required for modern automotive assembly. From raw material sourcing to the distribution of finished premium units across the Continental corridor.</p>
+                <ul class="asset-list">
+                    <li>CKD/SKD Operations</li>
+                    <li>Spare Parts Hubs</li>
+                    <li>Finished Vehicle Log</li>
+                    <li>Technical Inspection</li>
+                    <li>OEM Integration</li>
+                    <li>Customs Engineering</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="flow-section">
+        <div class="flow-content">
+            <h2>The Mobility Roadmap</h2>
+            
+            <div class="framework-grid">
+                <div class="framework-item">
+                    <h4>Electrification</h4>
+                    <p>Aggressive deployment of capital into solid-state battery research and decentralized charging infrastructure.</p>
+                </div>
+                <div class="framework-item">
+                    <h4>Connectivity</h4>
+                    <p>Integrating 5G-enabled vehicle-to-everything (V2X) communication to optimize urban traffic flow and safety.</p>
+                </div>
+                <div class="framework-item">
+                    <h4>Autonomy</h4>
+                    <p>Managing the transition to Level 4 autonomous logistics fleets through proprietary AI-driven navigation corridors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <p>Nordic Continental Group is a multi-sector powerhouse based in Europe, driving innovation across logistics and finance.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Navigate</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#services">Our Sectors</a></li>
+                    <li><a href="index.html#careers">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Sectors</h4>
+                <ul class="footer-links">
+                    <li><a href="logistics.html">Logistics</a></li>
+                    <li><a href="finance.html">Finance</a></li>
+                    <li><a href="healthcare.html">Healthcare</a></li>
+                    <li><a href="insurance.html">Insurance</a></li>
+                    <li><a href="automobile.html">Automobile</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <p>Headquarters:<br><i>Nordic Continental Group, FIRST Rotterdam, Weena 750‑760, 3013 CK Rotterdam, Netherlands</i></p>
+                <br>
+                <p>Email: <i>info@nordiccontinental.com</i></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2015 Nordic Continental Group. All rights reserved.</p>
+            <div style="display: flex; gap: 1.5rem;">
+                <a href="Privacy.html" style="color:white; text-decoration:none;">Privacy Policy</a>
+                <a href="Privacy.html" style="color:white; text-decoration:none;">Terms of Use</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

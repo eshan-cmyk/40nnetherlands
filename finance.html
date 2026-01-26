@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantitative Finance & Capital Markets | Nordic Continental Group</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- Shared Framework --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; color: #333; line-height: 1.6; background: #ffffff; overflow-x: hidden; }
+        
+        /* --- Navigation --- */
+        nav { background: #ffffff; padding: 1.2rem 5%; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); position: sticky; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 40px; width: auto; display: block; }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+        .nav-links a { color: #0A192F; text-decoration: none; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; transition: 0.3s; }
+        .nav-links a:hover { color: #C9A962; }
+        .menu-toggle { display: none; background: none; border: none; font-size: 1.8rem; color: #0A192F; cursor: pointer; }
+
+        /* --- Finance Hero Section --- */
+        .finance-hero {
+            background: linear-gradient(135deg, rgba(10, 25, 47, 0.9) 0%, rgba(10, 25, 47, 0.7) 100%), 
+                        url('img/hero-finance.jpg') center/cover no-repeat;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 0 5%;
+        }
+        .hero-title h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 1.5rem; letter-spacing: -1px; }
+        .hero-title p { max-width: 850px; margin: 0 auto; font-size: 1.1rem; font-weight: 300; opacity: 0.85; line-height: 1.8; }
+
+        /* --- Fiscal Telemetry (Financial KPIs) --- */
+        .asset-telemetry { max-width: 1300px; margin: -60px auto 6rem; padding: 0 5%; position: relative; z-index: 10; }
+        .telemetry-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+        .telemetry-card { background: #ffffff; padding: 2.5rem; border-top: 5px solid #C9A962; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .telemetry-card h4 { font-size: 0.75rem; text-transform: uppercase; color: #888; letter-spacing: 2px; margin-bottom: 0.5rem; }
+        .telemetry-card .value { font-size: 2rem; font-weight: 700; color: #0A192F; display: block; }
+        .telemetry-card .label { font-size: 0.85rem; color: #C9A962; font-weight: 600; }
+
+        /* --- Investment Matrix (Style Change: Multi-Column technical list) --- */
+        .service-matrix { padding: 6rem 5%; max-width: 1400px; margin: 0 auto; }
+        .matrix-header { text-align: center; margin-bottom: 4rem; }
+        .matrix-header h2 { font-size: 2.5rem; color: #0A192F; margin-bottom: 1rem; }
+        
+        .matrix-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 4rem; }
+        .service-module { border: 1px solid #eee; padding: 3rem; border-radius: 4px; position: relative; }
+        .service-module h3 { font-size: 1.5rem; margin-bottom: 1.5rem; color: #0A192F; border-bottom: 2px solid #C9A962; display: inline-block; padding-bottom: 5px; }
+        .service-module p { font-size: 0.95rem; color: #555; margin-bottom: 2rem; line-height: 1.7; }
+        
+        .asset-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .asset-list li { font-size: 0.8rem; font-weight: 700; color: #0A192F; border-left: 3px solid #C9A962; padding-left: 10px; }
+
+        /* --- High-Frequency Flow Section --- */
+        .flow-section { background: #0A192F; color: white; padding: 8rem 5%; display: flex; justify-content: center; }
+        .flow-content { max-width: 900px; width: 100%; }
+        .flow-content h2 { font-size: 2.5rem; margin-bottom: 3rem; color: #C9A962; text-align: center; }
+        
+        .tier-system { border: 1px solid rgba(255,255,255,0.1); padding: 3rem; border-radius: 10px; }
+        .tier-item { margin-bottom: 2.5rem; position: relative; padding-left: 40px; }
+        .tier-item::before { content: "►"; position: absolute; left: 0; color: #C9A962; font-size: 1.2rem; }
+        .tier-item strong { color: #C9A962; display: block; margin-bottom: 0.8rem; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 2px; }
+        .tier-item p { opacity: 0.8; font-size: 0.95rem; }
+
+        /* --- Footer --- */
+        footer { background: #0A192F; color: #ffffff; padding: 5rem 5% 2rem; font-size: 0.85rem; }
+        .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 4rem; }
+        .footer-column h4 { color: #C9A962; margin-bottom: 1.5rem; font-size: 0.9rem; text-transform: uppercase; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 0.8rem; }
+        .footer-links a { color: #ffffff; text-decoration: none; opacity: 0.7; transition: 0.3s; }
+        .footer-bottom { max-width: 1200px; margin: 4rem auto 0; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1); display: flex; justify-content: space-between; align-items: center; opacity: 0.6; }
+
+        @media (max-width: 992px) {
+            .menu-toggle { display: block; }
+            .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: white; flex-direction: column; padding: 2rem; text-align: center; }
+            .nav-links.active { display: flex; }
+            .matrix-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo"><a href="index.html"><img src="img/logo.png" alt="Nordic Continental Group"></a></div>
+            <button class="menu-toggle" id="mobile-menu-btn">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="finance.html">Finance</a></li>
+                <li><a href="index.html#careers">Careers</a></li>
+                <li><a href="index.html#about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="finance-hero">
+        <div class="hero-title">
+            <h1>Quantitative Finance & Alpha Generation</h1>
+            <p>Leveraging high-fidelity algorithmic trading, institutional-grade capital deployment, and cross-border fiscal optimization. Nordic Continental Group engineers superior risk-adjusted returns through deep liquidity and predictive market intelligence.</p>
+        </div>
+    </header>
+
+    <section class="asset-telemetry">
+        <div class="telemetry-grid">
+            <div class="telemetry-card">
+                <h4>AUM</h4>
+                <span class="value">€1.42B</span>
+                <span class="label">Total Managed Assets</span>
+            </div>
+            <div class="telemetry-card">
+                <h4>Alpha Yield</h4>
+                <span class="value">+12.4%</span>
+                <span class="label">Avg. Annual Return</span>
+            </div>
+            <div class="telemetry-card">
+                <h4>Liquidity Depth</h4>
+                <span class="value">T+0</span>
+                <span class="label">Settlement Capability</span>
+            </div>
+            <div class="telemetry-card">
+                <h4>Risk Index</h4>
+                <span class="value">0.82</span>
+                <span class="label">Sharpe Ratio Efficiency</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-matrix">
+        <div class="matrix-header">
+            <h2>Capital Market Specializations</h2>
+            <p>Advanced fiscal structures designed for the European Economic Area.</p>
+        </div>
+        <div class="matrix-grid">
+            <div class="service-module">
+                <h3>Institutional Wealth Management</h3>
+                <p>We provide ultra-high-net-worth individuals and institutional family offices with a bespoke gateway to diversified European assets. Our focus remains on capital preservation while capturing volatility-driven growth.</p>
+                <ul class="asset-list">
+                    <li>Fixed Income Arrays</li>
+                    <li>Equity Derivatives</li>
+                    <li>Private Equity Access</li>
+                    <li>Hedged Portfolios</li>
+                    <li>Real Estate REITs</li>
+                    <li>ESG Impact Bonds</li>
+                </ul>
+            </div>
+            <div class="service-module">
+                <h3>Structured Corporate Finance</h3>
+                <p>Facilitating complex M&A, debt restructuring, and IPO advisory services. We bridge the gap between traditional banking and the agility of private capital markets, ensuring optimal leverage for enterprise scaling.</p>
+                <ul class="asset-list">
+                    <li>Mezzanine Debt</li>
+                    <li>Syndicated Loans</li>
+                    <li>Bridge Financing</li>
+                    <li>LBO Advisory</li>
+                    <li>Venture Capital</li>
+                    <li>Fiscal Restructuring</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <section class="flow-section">
+        <div class="flow-content">
+            <h2>The Quantitative Investment Process</h2>
+            <div class="tier-system">
+                <div class="tier-item">
+                    <strong>Phase I: Data Extraction & Normalization</strong>
+                    <p>Processing millions of global market data points through our proprietary neural network to isolate non-linear price signals and macroeconomic correlations.</p>
+                </div>
+                <div class="tier-item">
+                    <strong>Phase II: Risk-Parity Allocation</strong>
+                    <p>Deploying assets across multiple non-correlated classes to ensure the portfolio maintains a low-beta profile during periods of systemic market stress.</p>
+                </div>
+                <div class="tier-item">
+                    <strong>Phase III: High-Execution Arbitrage</strong>
+                    <p>Utilizing low-latency infrastructure to execute trades across European exchanges, capturing micro-inefficiencies before the broader market adjusts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <p>Nordic Continental Group is a multi-sector powerhouse based in Europe, driving innovation across logistics and finance.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Navigate</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#services">Our Sectors</a></li>
+                    <li><a href="index.html#careers">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Sectors</h4>
+                <ul class="footer-links">
+                    <li><a href="logistics.html">Logistics</a></li>
+                    <li><a href="finance.html">Finance</a></li>
+                    <li><a href="healthcare.html">Healthcare</a></li>
+                    <li><a href="insurance.html">Insurance</a></li>
+                    <li><a href="hospitality.html">Hospitality</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <p>Headquarters:<br><i>Nordic Continental Group, FIRST Rotterdam, Weena 750‑760, 3013 CK Rotterdam, Netherlands</i></p>
+                <br>
+                <p>Email: <i>info@nordiccontinental.com</i></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2015 Nordic Continental Group. All rights reserved.</p>
+            <div style="display: flex; gap: 1.5rem;">
+                <a href="Privacy.html" style="color:white; text-decoration:none;">Privacy Policy</a>
+                <a href="Privacy.html" style="color:white; text-decoration:none;">Terms of Use</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.getElementById('navLinks');
+        menuBtn.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+    </script>
+</body>
+</html>

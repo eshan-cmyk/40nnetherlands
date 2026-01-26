@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Intelligence Tools | Nordic Continental Group</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- Shared Framework --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; color: #333; line-height: 1.6; background: #f4f7f9; overflow-x: hidden; }
+        
+        /* --- Navigation --- */
+        nav { background: #ffffff; padding: 1.2rem 5%; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); position: sticky; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 40px; width: auto; display: block; }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+        .nav-links a { color: #0A192F; text-decoration: none; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; transition: 0.3s; }
+        .nav-links a:hover { color: #C9A962; }
+
+        /* --- Calculator Hero --- */
+        .calc-hero {
+            background: linear-gradient(135deg, rgba(10, 25, 47, 0.9) 0%, rgba(10, 25, 47, 0.7) 100%);
+            padding: 100px 5% 150px;
+            color: white;
+            text-align: center;
+        }
+        .calc-hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+        .calc-hero p { max-width: 700px; margin: 0 auto; opacity: 0.8; font-weight: 300; }
+
+        /* --- Calculator Grid --- */
+        .calc-section { max-width: 1200px; margin: -80px auto 100px; padding: 0 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
+        
+        .calculator {
+            background: #ffffff;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border-top: 5px solid #C9A962;
+        }
+        .calculator h2 { color: #0A192F; font-size: 1.4rem; margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        
+        label { display: block; margin-top: 15px; font-weight: 600; font-size: 0.85rem; color: #666; text-transform: uppercase; }
+        input, select { width: 100%; padding: 12px; margin-top: 8px; border-radius: 6px; border: 1px solid #ddd; font-family: inherit; font-size: 1rem; }
+        
+        button {
+            margin-top: 25px;
+            padding: 15px;
+            width: 100%;
+            border: none;
+            background: #0A192F;
+            color: white;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover { background: #C9A962; }
+
+        .result-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f0f9f4;
+            border-radius: 6px;
+            border-left: 4px solid #27ae60;
+            display: none; /* Hidden until calculated */
+        }
+        .result-box p { font-weight: 700; color: #1e8449; font-size: 1.1rem; }
+
+        /* --- Footer --- */
+        footer { background: #0A192F; color: #ffffff; padding: 5rem 5% 2rem; font-size: 0.85rem; margin-top: 50px; }
+        .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 4rem; }
+        .footer-column h4 { color: #C9A962; margin-bottom: 1.5rem; font-size: 0.9rem; text-transform: uppercase; }
+        .footer-links { list-style: none; }
+        .footer-links a { color: #ffffff; text-decoration: none; opacity: 0.7; }
+        .footer-bottom { max-width: 1200px; margin: 4rem auto 0; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1); display: flex; justify-content: space-between; opacity: 0.6; }
+
+        @media (max-width: 768px) {
+            .footer-container { grid-template-columns: 1fr; }
+            .calc-hero h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo"><a href="index.html"><img src="img/logo.png" alt="Nordic Continental Group"></a></div>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="finance.html">Finance</a></li>
+                <li><a href="logistics.html">Logistics</a></li>
+                <li><a href="index.html#about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="calc-hero">
+        <h1>Fiscal Decision Tools</h1>
+        <p>Interactive analytical calculators designed to provide immediate clarity on complex financial structures, from mortgage amortization to ZZP net-income modeling.</p>
+    </header>
+
+    <div class="calc-section">
+        <div class="calculator">
+            <h2>Net Salary (2026 Dutch Rates)</h2>
+            <label>Monthly Gross Income (€)</label>
+            <input type="number" id="grossSalary" placeholder="e.g. 5000">
+            <label>Apply 30% Ruling?</label>
+            <select id="ruling30">
+                <option value="no">No</option>
+                <option value="yes">Yes (Eligible Expat)</option>
+            </select>
+            <button onclick="calcSalary()">Analyze Take-Home Pay</button>
+            <div class="result-box" id="salaryResBox"><p id="salaryResText"></p></div>
+        </div>
+
+        <div class="calculator">
+            <h2>VAT (BTW) Processing</h2>
+            <label>Amount (€)</label>
+            <input type="number" id="vatAmount" placeholder="1000">
+            <label>Tax Bracket</label>
+            <select id="vatRate">
+                <option value="21">Standard (21%)</option>
+                <option value="9">Reduced (9%)</option>
+            </select>
+            <button onclick="calcVAT()">Extract Tax Components</button>
+            <div class="result-box" id="vatResBox"><p id="vatResText"></p></div>
+        </div>
+
+        <div class="calculator">
+            <h2>Mortgage Amortization</h2>
+            <label>Principal Loan Amount (€)</label>
+            <input type="number" id="loanAmt" placeholder="350000">
+            <label>Interest Rate (%)</label>
+            <input type="number" id="intRate" step="0.1" placeholder="3.8">
+            <label>Term (Years)</label>
+            <input type="number" id="loanYrs" placeholder="30">
+            <button onclick="calcMortgage()">Forecast Monthly Cost</button>
+            <div class="result-box" id="mortResBox"><p id="mortResText"></p></div>
+        </div>
+
+        <div class="calculator">
+            <h2>ZZP Business Yield</h2>
+            <label>Annual Revenue (€)</label>
+            <input type="number" id="zzpRev" placeholder="80000">
+            <label>Operating Expenses (€)</label>
+            <input type="number" id="zzpExp" placeholder="12000">
+            <button onclick="calcZZP()">Evaluate Net Profit</button>
+            <div class="result-box" id="zzpResBox"><p id="zzpResText"></p></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <p>Nordic Continental Group is a multi-sector powerhouse based in Europe, driving innovation across logistics and finance.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Navigate</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#services">Our Sectors</a></li>
+                    <li><a href="index.html#careers">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Sectors</h4>
+                <ul class="footer-links">
+                    <li><a href="logistics.html">Logistics</a></li>
+                    <li><a href="finance.html">Finance</a></li>
+                    <li><a href="healthcare.html">Healthcare</a></li>
+                    <li><a href="insurance.html">Insurance</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <p>Headquarters:<br><i>FIRST Rotterdam, Weena 750‑760, 3013 CK Rotterdam, NL</i></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Nordic Continental Group. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function showRes(id, text) {
+            const box = document.getElementById(id + "Box");
+            const txt = document.getElementById(id + "Text");
+            txt.innerText = text;
+            box.style.display = "block";
+        }
+
+        function calcSalary() {
+            let gross = Number(document.getElementById("grossSalary").value);
+            let ruling = document.getElementById("ruling30").value;
+            // Simplified 2026 logic: Bracket 1 (35.75%)
+            let taxable = ruling === "yes" ? gross * 0.7 : gross;
+            let tax = taxable * 0.3575;
+            let net = gross - tax;
+            showRes("salary", "Estimated Net Monthly: €" + net.toLocaleString(undefined, {minimumFractionDigits: 2}));
+        }
+
+        function calcVAT() {
+            let amt = Number(document.getElementById("vatAmount").value);
+            let rate = Number(document.getElementById("vatRate").value);
+            let vat = amt * (rate / 100);
+            showRes("vat", "VAT Amount: €" + vat.toFixed(2) + " | Total: €" + (amt + vat).toFixed(2));
+        }
+
+        function calcMortgage() {
+            let p = Number(document.getElementById("loanAmt").value);
+            let r = (Number(document.getElementById("intRate").value) / 100) / 12;
+            let n = Number(document.getElementById("loanYrs").value) * 12;
+            let m = (p * r) / (1 - Math.pow(1 + r, -n));
+            showRes("mort", "Monthly Payment (Gross): €" + m.toLocaleString(undefined, {maximumFractionDigits: 2}));
+        }
+
+        function calcZZP() {
+            let rev = Number(document.getElementById("zzpRev").value);
+            let exp = Number(document.getElementById("zzpExp").value);
+            let profit = rev - exp;
+            // 2026 ZZP: Phased out self-employed deduction approx
+            let net = profit * 0.64; 
+            showRes("zzp", "Est. Annual Take-Home: €" + net.toLocaleString());
+        }
+    </script>
+</body>
+</html>
