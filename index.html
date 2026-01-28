@@ -3,13 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nordic Continental Group - Redefining European Enterprise</title>
+    <meta name="description" content="Nordic Continental Group - A multi-sector powerhouse driving innovation in logistics, finance, healthcare, and beyond across Europe.">
+    <title>Nordic Continental Group | Redefining European Enterprise</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <style>
+        :root {
+            --primary-navy: #0A192F;
+            --accent-gold: #C9A962;
+            --deep-purple: #0c003e;
+            --light-bg: #f8f9fa;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
         html { scroll-behavior: smooth; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -17,17 +26,20 @@
             font-family: 'Montserrat', sans-serif;
             color: #333;
             line-height: 1.6;
-            background: #f8f9fa;
+            background: var(--light-bg);
+            overflow-x: hidden;
         }
 
-        /* Navigation */
+        /* Navigation - Enhanced Glassmorphism */
         nav {
-            background: #ffffff;
-            padding: 1.5rem 5%;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
             position: sticky;
             top: 0;
             z-index: 1000;
+            transition: var(--transition);
         }
 
         .nav-container {
@@ -38,45 +50,41 @@
             align-items: center;
         }
 
-        .logo img { height: 50px; width: auto; display: block; }
+        .logo img { height: 45px; width: auto; display: block; transition: var(--transition); }
+        .logo img:hover { transform: scale(1.05); }
 
         .nav-links { display: flex; gap: 2.5rem; list-style: none; }
         .nav-links a {
-            color: #0A192F;
+            color: var(--primary-navy);
             text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            font-size: 0.95rem;
+            font-weight: 600;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
-        .nav-links a:hover { color: #C9A962; }
+        .nav-links a:hover { color: var(--accent-gold); }
 
-        /* Hero Section */
+        /* Hero Section - High Impact */
         .hero {
             position: relative;
             color: white;
-            padding: 10rem 5% 8rem;
+            padding: 10rem 5%;
             text-align: center;
             overflow: hidden;
-            background: #0A192F;
+            background: var(--primary-navy);
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 80vh;
-            
-            /* Add this shadow line */
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-            /* Ensure the shadow sits above the next section */
+            min-height: 85vh;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             z-index: 10; 
         }
 
         .hero-video {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
+            top: 50%; left: 50%;
+            min-width: 100%; min-height: 100%;
             z-index: 0;
             transform: translate(-50%, -50%);
             object-fit: cover;
@@ -84,80 +92,134 @@
 
         .hero-overlay {
             position: absolute;
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 100%;
-            background: rgba(10, 25, 47, 0.6);
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(10, 25, 47, 0.8) 0%, rgba(10, 25, 47, 0.4) 100%);
             z-index: 1;
         }
 
         .hero-content { 
             max-width: 900px; 
-            margin: 0 auto; 
             position: relative; 
             z-index: 2; 
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .hero h1 { 
-            font-size: clamp(2rem, 5vw, 3.5rem); 
+            font-size: clamp(2.5rem, 6vw, 4rem); 
             font-weight: 700; 
-            margin-bottom: 1.2rem; /* Slightly reduced for tighter look */
+            margin-bottom: 1.5rem;
             line-height: 1.1;
+            letter-spacing: -1px;
         }
 
         .hero p { 
-            font-size: 1.1rem; /* Slightly smaller as requested earlier */
-            margin-bottom: 2.5rem; 
+            font-size: 1.2rem;
+            margin-bottom: 3rem; 
             opacity: 0.9; 
-            line-height: 1.6;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        /* Buttons */
-        .cta-buttons { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
-        .btn { padding: 1rem 2.5rem; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; transition: 0.3s; text-decoration: none; display: inline-block; }
-        .btn-primary { background: #0c003e; color: rgb(255, 255, 255); }
-        .btn-secondary { background: transparent; color: white; border: 2px solid white; }
 
-        /* Services Grid */
-        .services { padding: 6rem 5%; background: #ffffff; }
+        /* Buttons - Modern Styling */
+        .cta-buttons { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+        .btn { 
+            padding: 1.2rem 2.8rem; 
+            border-radius: 50px; 
+            font-weight: 700; 
+            cursor: pointer; 
+            transition: var(--transition); 
+            text-decoration: none; 
+            display: inline-block;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+        .btn-primary { background: var(--deep-purple); color: white; box-shadow: 0 4px 15px rgba(12, 0, 62, 0.3); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(12, 0, 62, 0.4); background: #15006e; }
+        
+        .btn-secondary { background: transparent; color: white; border: 2px solid white; }
+        .btn-secondary:hover { background: white; color: var(--primary-navy); }
+
+        /* Services Grid - Interactive Cards */
+        .services { padding: 8rem 5%; background: #ffffff; }
         .services-container { max-width: 1400px; margin: 0 auto; }
-        .section-header { text-align: center; margin-bottom: 4rem; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
+        .section-header h2 { font-size: 2.5rem; color: var(--primary-navy); margin-bottom: 1rem; }
+        .services-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 2rem; 
+        }
         
         .service-card {
             background: #ffffff;
-            border-radius: 12px;
-            padding: 2.5rem;
-            transition: 0.3s;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            display: flex;
-            flex-direction: column;
+            border-radius: 15px;
+            padding: 2rem;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0,0,0,0.03);
         }
-        .service-card:hover { transform: translateY(-10px); }
-        .service-image { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 1.5rem; }
+        .service-card:hover { 
+            transform: translateY(-10px); 
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        .service-image { 
+            width: 100%; 
+            height: 220px; 
+            object-fit: cover; 
+            border-radius: 10px; 
+            margin-bottom: 1.5rem; 
+        }
+        .service-card h3 { margin-bottom: 0.8rem; color: var(--primary-navy); }
 
         /* About Section */
-        .about-container { max-width: 1200px; margin: 0 auto; padding: 5rem 5%; }
+        .about { padding: 8rem 5%; background: var(--light-bg); }
         .about-split { display: flex; align-items: center; gap: 5rem; margin-bottom: 5rem; }
-        .about-text { flex: 1; }
-        .about-image-container { flex: 1; position: relative; }
-        .about-image-container img { width: 100%; border-radius: 20px; box-shadow: 20px 20px 60px rgba(0,0,0,0.1); }
+        .about-text h2 { font-size: clamp(2.5rem, 4vw, 3.5rem); color: var(--primary-navy); }
+        .about-image-container img { 
+            width: 100%; 
+            border-radius: 30px; 
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15); 
+            transition: var(--transition);
+        }
+        .about-image-container img:hover { transform: scale(1.02); }
         
-        .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-        .value-card { background: #ffffff; padding: 2.5rem 1.5rem; border-radius: 15px; border: 1px solid rgba(201,169,98,0.15); text-align: center; transition: 0.4s; }
-        .value-card:hover { background: #0A192F; color: white; transform: translateY(-10px); }
-        .value-icon { font-size: 2rem; color: #C9A962; margin-bottom: 1.2rem; display: block; }
+        .value-card { 
+            background: white; 
+            padding: 3rem 2rem; 
+            border-radius: 20px; 
+            text-align: center; 
+            transition: var(--transition);
+            border-bottom: 4px solid transparent;
+        }
+        .value-card:hover { 
+            border-bottom-color: var(--accent-gold);
+            transform: translateY(-5px);
+        }
+        .value-icon { font-size: 2.5rem; color: var(--accent-gold); margin-bottom: 1rem; display: block; }
 
         /* Footer */
-        footer { background: #0A192F; color: #ffffff; padding: 5rem 5% 2rem; }
-        .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 4rem; }
+        footer { background: var(--primary-navy); color: #ffffff; padding: 6rem 5% 2rem; }
+        .footer-container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            display: grid; 
+            grid-template-columns: 2fr 1fr 1fr 1.5fr; 
+            gap: 4rem; 
+        }
+        .footer-column h4 { color: var(--accent-gold); margin-bottom: 1.5rem; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; }
         .footer-links { list-style: none; }
-        .footer-links a { color: white; opacity: 0.7; text-decoration: none; transition: 0.3s; }
-        .footer-links a:hover { opacity: 1; color: #C9A962; }
-        .footer-bottom { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; opacity: 0.6; }
+        .footer-links li { margin-bottom: 0.8rem; }
+        .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; transition: 0.3s; }
+        .footer-links a:hover { color: white; padding-left: 5px; }
 
-        /* Mobile Adjustments */
-        .menu-toggle { display: none; background: none; border: none; font-size: 1.5rem; color: #0A192F; cursor: pointer; }
+        /* Mobile Menu */
+        .menu-toggle { display: none; background: none; border: none; font-size: 2rem; color: var(--primary-navy); cursor: pointer; }
 
         @media (max-width: 992px) {
             .about-split { flex-direction: column; text-align: center; }
@@ -168,217 +230,207 @@
             .menu-toggle { display: block; }
             .nav-links {
                 display: none; position: absolute; top: 100%; left: 0; right: 0;
-                background: white; flex-direction: column; padding: 1.5rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+                background: white; flex-direction: column; padding: 2rem; text-align: center;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
             }
             .nav-links.active { display: flex; }
-            .footer-container { grid-template-columns: 1fr; }
-            .footer-bottom { flex-direction: column; text-align: center; gap: 1rem; }
+            .hero { padding-top: 8rem; }
         }
     </style>
 </head>
 <body>
 
-    <nav>
+<nav>
     <div class="nav-container">
         <div class="logo">
             <a href="index.html">
-                <img src="img/logo.png" alt="Nordic Continental Group">
+                <img src="img/logo.png" alt="Nordic Continental Group Logo">
             </a>
         </div>
         
-        <button class="menu-toggle" id="mobile-menu-btn">☰</button>
+        <button class="menu-toggle" id="mobile-menu-btn" aria-label="Toggle Menu">☰</button>
         
         <ul class="nav-links" id="navLinks">
             <li><a href="index.html">Home</a></li>
-            <li><a href="index.html#services">Services</a></li>
-            <li><a href="fc.html">Finance Calculator</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="fc.html">Finance</a></li>
             <li><a href="careers.html">Careers</a></li>
-            <li><a href="index.html#about">About</a></li>
+            <li><a href="#about">About</a></li>
         </ul>
     </div>
 </nav>
 
-    <section class="hero" id="home">
-        <video autoplay muted loop playsinline class="hero-video" poster="img/fallback.jpg">
-            <source src="img/hero-bg.mp4" type="video/mp4">
-        </video>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1>Redefining European Enterprise</h1>
-            <p>Nordic Continental Group is a multi-sector powerhouse, driving innovation across logistics, finance, healthcare, and beyond.</p>
-            <div class="cta-buttons">
-                <a href="#services" class="btn btn-primary">Explore Our Sectors</a>
-                <a href="mailto:info@nordiccontinentalgroup.com" class="btn btn-secondary">Partner With Us</a>
-            </div>
-        </div>
-    </section>
-
-<section class="services" id="services">
-    <div class="services-container">
-        <div class="section-header">
-            <h2>Our Core Sectors</h2>
-            <p>Excellence delivered across diverse industries, unified by Nordic precision.</p>
-        </div>
-        <div class="services-grid">
-            
-            <div class="service-card">
-                <a href="logistics.html" style="text-decoration: none; color: inherit;">
-                    <img src="img/logistics.jpg" alt="Logistics" class="service-image" loading="lazy">
-                    <h3>Logistics</h3>
-                </a>
-                <p>We optimize the European supply chain through advanced tracking and sustainable transport.</p>
-            </div>
-
-            <div class="service-card">
-                <a href="insurance.html" style="text-decoration: none; color: inherit;">
-                    <img src="img/insurance.jpg" alt="Insurance" class="service-image" loading="lazy">
-                    <h3>Insurance</h3>
-                </a>
-                <p>Protecting your future with custom-fit risk management and premium coverage.</p>
-            </div>
-
-            <div class="service-card">
-                <a href="finance.html" style="text-decoration: none; color: inherit;">
-                    <img src="img/finance.jpg" alt="Finance" class="service-image" loading="lazy">
-                    <h3>Finance Services</h3>
-                </a>
-                <p>Bridging tradition and digital innovation in wealth management and capital growth.</p>
-            </div>
-
-            <div class="service-card">
-                <a href="hospitality.html" style="text-decoration: none; color: inherit;">
-                    <img src="img/hospitality.jpg" alt="Hospitality" class="service-image" loading="lazy">
-                    <h3>Hospitality</h3>
-                </a>
-                <p>Experience the art of Nordic living through luxury properties and high-end service.</p>
-            </div>
-
-            <div class="service-card">
-                <a href="consultancy.html" style="text-decoration: none; color: inherit;">
-                    <img src="img/consultancy.jpg" alt="Consultancy" class="service-image" loading="lazy">
-                    <h3>Consultancy</h3>
-                </a>
-                <p>Guiding enterprises through the complexities of global expansion and regulatory shifts.</p>
-            </div>
-
-            <div class="service-card">
-                <a href="healthcare.html" style="text-decoration: none; color: inherit;">
-                    <img src="img/healthcare.jpg" alt="Healthcare" class="service-image" loading="lazy">
-                    <h3>Healthcare</h3>
-                </a>
-                <p>Investing in the future of wellness with cutting-edge medical technology.</p>
-            </div>
-
-            <div class="service-card">
-                <a href="fmcg.html" style="text-decoration: none; color: inherit;">
-                    <img src="img/fmcg.jpg" alt="FMCG" class="service-image" loading="lazy">
-                    <h3>FMCG</h3>
-                </a>
-                <p>Connecting premium consumer brands with the European heartland via quality distribution.</p>
-            </div>
-
-            <div class="service-card">
-                <a href="automobile.html" style="text-decoration: none; color: inherit;">
-                    <img src="img/automobile.jpg" alt="Automobile" class="service-image" loading="lazy">
-                    <h3>Automobile</h3>
-                </a>
-                <p>Driving the transition toward smarter, cleaner mobility and European engineering.</p>
-            </div>
-
+<section class="hero" id="home">
+    <video autoplay muted loop playsinline class="hero-video" poster="img/fallback.jpg">
+        <source src="img/hero-bg.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>Redefining European Enterprise</h1>
+        <p>Nordic Continental Group is a multi-sector powerhouse, driving innovation across logistics, finance, healthcare, and beyond with Nordic precision.</p>
+        <div class="cta-buttons">
+            <a href="#services" class="btn btn-primary">Explore Our Sectors</a>
+            <a href="mailto:info@nordiccontinentalgroup.com" class="btn btn-secondary">Partner With Us</a>
         </div>
     </div>
 </section>
-    </section>
 
-    <section class="about" id="about">
-        <div class="about-container">
-            <div class="about-split">
-                <div class="about-text">
-                    <h2 style="font-size: 3rem; line-height: 1.1;">Tradition Meets <br><span style="color: #0A192F;">Innovation</span></h2>
-                    <p style="margin-top: 2rem;">Based in the heart of Europe, Nordic Continental Group operates at the intersection of tradition and innovation.</p>
-                    <p style="margin-top: 1.5rem;">Our commitment to European values of quality and sustainability drives everything we do.</p>
-                </div>
-                <div class="about-image-container">
-                    <img src="img/corporate.jpg" alt="Headquarters" loading="lazy">
-                </div>
+<section class="services" id="services">
+    <div class="services-container">
+        <div class="section-header" style="text-align: center; margin-bottom: 5rem;">
+            <h2>Our Core Sectors</h2>
+            <p>Unified excellence delivered across diverse European industries.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <a href="logistics.html" style="text-decoration: none; color: inherit;">
+                    <img src="img/logistics.jpg" alt="Logistics Services" class="service-image" loading="lazy">
+                    <h3>Logistics</h3>
+                    <p>Optimizing European supply chains through advanced tracking and sustainable transport solutions.</p>
+                </a>
             </div>
-            <div class="about-grid">
-                <div class="value-card">
-                    <span class="value-icon">◈</span>
-                    <h4>Quality</h4>
-                    <p>Uncompromising standards in every product and service.</p>
-                </div>
-                <div class="value-card">
-                    <span class="value-icon">⚙</span>
-                    <h4>Sustainability</h4>
-                    <p>Strategies designed to protect our environment.</p>
-                </div>
-                <div class="value-card">
-                    <span class="value-icon">⚖</span>
-                    <h4>Integrity</h4>
-                    <p>Building trust through transparent operations.</p>
-                </div>
+            <div class="service-card">
+                <a href="insurance.html" style="text-decoration: none; color: inherit;">
+                    <img src="img/insurance.jpg" alt="Insurance Services" class="service-image" loading="lazy">
+                    <h3>Insurance</h3>
+                    <p>Protecting your future with custom-fit risk management and premium coverage options.</p>
+                </a>
+            </div>
+            <div class="service-card">
+                <a href="finance.html" style="text-decoration: none; color: inherit;">
+                    <img src="img/finance.jpg" alt="Finance Services" class="service-image" loading="lazy">
+                    <h3>Finance Services</h3>
+                    <p>Bridging tradition and digital innovation in wealth management and capital growth.</p>
+                </a>
+            </div>
+            <div class="service-card">
+                <a href="hospitality.html" style="text-decoration: none; color: inherit;">
+                    <img src="img/hospitality.jpg" alt="Hospitality Services" class="service-image" loading="lazy">
+                    <h3>Hospitality</h3>
+                    <p>Experience the art of Nordic living through luxury properties and high-end service.</p>
+                </a>
+            </div>
+            <div class="service-card">
+                <a href="consultancy.html" style="text-decoration: none; color: inherit;">
+                    <img src="img/consultancy.jpg" alt="Consultancy Services" class="service-image" loading="lazy">
+                    <h3>Consultancy</h3>
+                    <p>Guiding enterprises through global expansion and complex regulatory shifts.</p>
+                </a>
+            </div>
+            <div class="service-card">
+                <a href="healthcare.html" style="text-decoration: none; color: inherit;">
+                    <img src="img/healthcare.jpg" alt="Healthcare Services" class="service-image" loading="lazy">
+                    <h3>Healthcare</h3>
+                    <p>Investing in the future of wellness with cutting-edge medical technology and care.</p>
+                </a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <footer>
-        <div class="footer-container">
-            <div class="footer-column">
-                <p>Nordic Continental Group is a multi-sector powerhouse based in Europe, driving innovation across logistics and finance.</p>
+<section class="about" id="about">
+    <div class="about-container">
+        <div class="about-split">
+            <div class="about-text">
+                <h2>Tradition Meets <br><span style="color: var(--accent-gold);">Innovation</span></h2>
+                <p style="margin-top: 2rem; font-size: 1.1rem;">Based in the heart of Europe, Nordic Continental Group operates at the intersection of heritage and future-readiness.</p>
+                <p style="margin-top: 1.5rem;">Our commitment to European values of quality and sustainability drives every investment and partnership we undertake.</p>
             </div>
-            <div class="footer-column">
-                <h4>Navigate</h4>
-                <ul class="footer-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Our Sectors</a></li>
-                    <li><a href="#careers">Careers</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Sectors</h4>
-                <ul class="footer-links">
-                    <li><a href="#services">Logistics</a></li>
-                    <li><a href="#services">Finance</a></li>
-                    <li><a href="#services">Healthcare</a></li>
-                    <li><a href="#services">Insurance</a></li>
-                    <li><a href="#services">Hospitality</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Contact</h4>
-                <p>Headquarters:<br><i>Nordic Continental Group, FIRST Rotterdam, Weena 750‑760, 3013 CK Rotterdam, Netherlands</i></p>
-                <br>
-                <p>Email: <i>info@nordiccontinental.com</i></p>
+            <div class="about-image-container">
+                <img src="img/corporate.jpg" alt="Nordic Continental Group Headquarters" loading="lazy">
             </div>
         </div>
-       <div class="footer-bottom">
-            <p>&copy; 2015 Nordic Continental Group. All rights reserved.</p>
-            <div style="display: flex; gap: 1.5rem;">
-                <a href="privacy.html" style="color:white; text-decoration:none; opacity: 0.8;">Privacy</a>
-                <a href="privacy.html" style="color:white; text-decoration:none; opacity: 0.8;">Terms</a>
+        <div class="about-grid">
+            <div class="value-card">
+                <span class="value-icon">◈</span>
+                <h4>Quality</h4>
+                <p>Uncompromising standards in every product and service we deliver.</p>
+            </div>
+            <div class="value-card">
+                <span class="value-icon">⚙</span>
+                <h4>Sustainability</h4>
+                <p>Strategies designed to protect our environment for future generations.</p>
+            </div>
+            <div class="value-card">
+                <span class="value-icon">⚖</span>
+                <h4>Integrity</h4>
+                <p>Building global trust through transparent and ethical operations.</p>
             </div>
         </div>
-    </footer>
+    </div>
+</section>
 
-    <script>
-        // Fix: Navigation Toggle Functionality
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const navLinks = document.getElementById('navLinks');
+<footer>
+    <div class="footer-container">
+        <div class="footer-column">
+            <img src="img/logo.png" alt="Logo" style="height: 40px; filter: brightness(0) invert(1); margin-bottom: 1.5rem;">
+            <p style="opacity: 0.7;">A multi-sector powerhouse based in Europe, driving innovation across logistics, finance, and infrastructure.</p>
+        </div>
+        <div class="footer-column">
+            <h4>Navigate</h4>
+            <ul class="footer-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Our Sectors</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Sectors</h4>
+            <ul class="footer-links">
+                <li><a href="#">Logistics</a></li>
+                <li><a href="#">Finance</a></li>
+                <li><a href="#">Healthcare</a></li>
+                <li><a href="#">Automotive</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Contact</h4>
+            <p style="opacity: 0.7; font-size: 0.9rem;">
+                FIRST Rotterdam, Weena 750‑760,<br>
+                3013 CK Rotterdam, Netherlands
+            </p>
+            <p style="margin-top: 1rem;"><a href="mailto:info@nordiccontinental.com" style="color: var(--accent-gold); text-decoration: none;">info@nordiccontinental.com</a></p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2015 - 2026 Nordic Continental Group. All rights reserved.</p>
+        <div style="display: flex; gap: 1.5rem;">
+            <a href="#" style="color:white; text-decoration:none; opacity: 0.6;">LinkedIn</a>
+            <a href="#" style="color:white; text-decoration:none; opacity: 0.6;">Twitter</a>
+        </div>
+    </div>
+</footer>
 
-        menuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+<script>
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const navLinks = document.getElementById('navLinks');
+
+    menuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        menuBtn.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+    });
+
+    // Close menu on link click
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            menuBtn.textContent = '☰';
         });
+    });
 
-        // Close menu on link click
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-    </script>
+    // Simple scroll header effect
+    window.addEventListener('scroll', () => {
+        const nav = document.querySelector('nav');
+        if (window.scrollY > 50) {
+            nav.style.padding = '0.8rem 5%';
+            nav.style.background = 'rgba(255, 255, 255, 0.98)';
+        } else {
+            nav.style.padding = '1rem 5%';
+            nav.style.background = 'rgba(255, 255, 255, 0.95)';
+        }
+    });
+</script>
+
 </body>
 </html>
-
-
-
