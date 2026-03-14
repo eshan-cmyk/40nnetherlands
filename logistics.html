@@ -188,57 +188,80 @@
     </section>
 
     <footer>
-        <div class="footer-container">
-            <div class="footer-column">
-                <p>Nordic Continental Group is a multi-sector powerhouse based in Europe, driving innovation across logistics and finance.</p>
-            </div>
-            <div class="footer-column">
-                <h4>Navigate</h4>
-                <ul class="footer-links">
-                    <li><a href="index.html#home">Home</a></li>
-                    <li><a href="index.html#services">Our Sectors</a></li>
-                    <li><a href="index.html#careers">Careers</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Sectors</h4>
-                <ul class="footer-links">
-                    <li><a href="logistics.html">Logistics</a></li>
-                    <li><a href="finance.html">Finance</a></li>
-                    <li><a href="healthcare.html">Healthcare</a></li>
-                    <li><a href="insurance.html">Insurance</a></li>
-                    <li><a href="hospitality.html">Hospitality</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Contact</h4>
-                <p>Headquarters:<br><i>Nordic Continental Group, FIRST Rotterdam, Weena 750‑760, 3013 CK Rotterdam, Netherlands</i></p>
-                <br>
-                <p>Email: <i>info@nordiccontinental.com</i></p>
-            </div>
+    <div class="footer-container">
+        <div class="footer-column">
+            <img src="img/logo.png" alt="Logo" style="height: 40px; filter: brightness(0) invert(1); margin-bottom: 1.5rem;">
+            <p style="opacity: 0.7;">A multi-sector powerhouse based in Europe, driving innovation across logistics, finance, and infrastructure.</p>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2015 Nordic Continental Group. All rights reserved.</p>
-            <div style="display: flex; gap: 1.5rem;">
-                <a href="Privacy.html" style="color:white; text-decoration:none;">Privacy Policy</a>
-                <a href="Privacy.html" style="color:white; text-decoration:none;">Terms of Use</a>
-            </div>
+        <div class="footer-column">
+            <h4>Navigate</h4>
+            <ul class="footer-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Our Sectors</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+            </ul>
         </div>
-    </footer>
+        <div class="footer-column">
+            <h4>Sectors</h4>
+            <ul class="footer-links">
+                <li><a href="#">Logistics</a></li>
+                <li><a href="#">Finance</a></li>
+                <li><a href="#">Healthcare</a></li>
+                <li><a href="#">Automotive</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Contact</h4>
+            <p style="opacity: 0.7; font-size: 0.9rem;">
+                <strong>Address:</strong><br>
+                Luxembourg<br>
+                Finland<br>
+                Netherlands<br><br>
+                <strong>Contact:</strong><br>
+                <a href="https://wa.me/3197010265716" target="_blank" style="color: var(--accent-gold); text-decoration: none;">(+31) 970 1026 5716</a><br><br>
+                <strong>Email:</strong><br>
+                <a href="mailto:info@nordiccontinentalgroup.com" style="color: var(--accent-gold); text-decoration: none;">info@nordiccontinentalgroup.com</a>
+            </p>
+        </div>
+    </div>
+    <div class="footer-bottom" style="font-size: 0.75rem;">
+    <p>&copy; 2015&ndash;2026 Nordic Continental Group. All rights reserved.</p>
+    <div style="display: flex; gap: 1.5rem;">
+        <a href="#" style="color:white; text-decoration:none; opacity: 0.6;">LinkedIn</a>
+        <a href="#" style="color:white; text-decoration:none; opacity: 0.6;">Twitter</a>
+    </div> 
+</footer>
 
-    <script>
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const navLinks = document.getElementById('navLinks');
+<script>
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const navLinks = document.getElementById('navLinks');
 
-        menuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+    menuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        menuBtn.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+    });
+
+    // Close menu on link click
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            menuBtn.textContent = '☰';
         });
+    });
 
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-    </script>
+    // Simple scroll header effect
+    window.addEventListener('scroll', () => {
+        const nav = document.querySelector('nav');
+        if (window.scrollY > 50) {
+            nav.style.padding = '0.8rem 5%';
+            nav.style.background = 'rgba(255, 255, 255, 0.98)';
+        } else {
+            nav.style.padding = '1rem 5%';
+            nav.style.background = 'rgba(255, 255, 255, 0.95)';
+        }
+    });
+</script>
+
 </body>
 </html>
