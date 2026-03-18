@@ -212,38 +212,82 @@
         </div>
     </section>
 
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <img src="img/logo.png" alt="Logo" style="height: 40px; filter: brightness(0) invert(1); margin-bottom: 1.5rem;">
+                <p style="opacity: 0.7;">A multi-sector powerhouse based in Europe, driving innovation across logistics, finance, and infrastructure.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Navigate</h4>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Our Sectors</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Sectors</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Logistics</a></li>
+                    <li><a href="#">Finance</a></li>
+                    <li><a href="#">Healthcare</a></li>
+                    <li><a href="#">Automotive</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <p style="opacity: 0.7; font-size: 0.9rem;">
+                    <strong>Address:</strong><br>
+                    <b>Luxembourg: </b>104, Boulevard Kennedy, L-4171 Esch-sur-Alzette, Luxembourg<br><br>
+                    <b>Finland: </b>Hatanpään valtatie, 36 33100 Tampere, Finland<br><br>
+                    <b>Netherlands: </b>Capronilaan 2, 1119 NR Schiphol-Rijk, Netherlands<br><br><br>
+                    <strong>Contact:</strong><br>
+                    <a href="https://wa.me/3197010265716" target="_blank" style="color: var(--accent-gold); text-decoration: none;">(+31) 970 1026 5716</a><br><br>
+                    <strong>Email:</strong><br>
+                    <a href="mailto:info@nordiccontinentalgroup.com" style="color: var(--accent-gold); text-decoration: none;">info@nordiccontinentalgroup.com</a>
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom" style="font-size: 0.75rem;">
+        <p>&copy; 2015&ndash;2026 Nordic Continental Group. All rights reserved.</p>
+        <div style="display: flex; gap: 1.5rem;">
+            <a href="#" style="color:white; text-decoration:none; opacity: 0.6;"> </a>
+            <a href="#" style="color:white; text-decoration:none; opacity: 0.6;"> </a>
+        </div> 
     </footer>
 
-<script>
-    const menuBtn = document.getElementById('mobile-menu-btn');
-    const navLinks = document.getElementById('navLinks');
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.getElementById('navLinks');
 
-    menuBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        menuBtn.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
-    });
-
-    // Close menu on link click
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            menuBtn.textContent = '☰';
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuBtn.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
         });
-    });
 
-    // Simple scroll header effect
-    window.addEventListener('scroll', () => {
-        const nav = document.querySelector('nav');
-        if (window.scrollY > 50) {
-            nav.style.padding = '0.8rem 5%';
-            nav.style.background = 'rgba(255, 255, 255, 0.98)';
-        } else {
-            nav.style.padding = '1rem 5%';
-            nav.style.background = 'rgba(255, 255, 255, 0.95)';
-        }
-    });
-</script>
+        // Close menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuBtn.textContent = '☰';
+            });
+        });
 
-</body>
-</html>
+        // Simple scroll header effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.padding = '0.8rem 5%';
+                nav.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                nav.style.padding = '1rem 5%';
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+    </script>
+
+    </body>
+    </html>
 
