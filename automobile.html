@@ -215,9 +215,9 @@
             <h4>Contact</h4>
             <p style="opacity: 0.7; font-size: 0.9rem;">
                 <strong>Address:</strong><br>
-                Luxembourg<br>
-                Finland<br>
-                Netherlands<br><br>
+                104, Boulevard Kennedy, L-4171 Esch-sur-Alzette, Luxembourg<br>
+                Hatanpään valtatie, 36 33100 Tampere, Finland<br>
+                Capronilaan 2, 1119 NR Schiphol-Rijk, Netherlands<br><br>
                 <strong>Contact:</strong><br>
                 <a href="https://wa.me/3197010265716" target="_blank" style="color: var(--accent-gold); text-decoration: none;">(+31) 970 1026 5716</a><br><br>
                 <strong>Email:</strong><br>
@@ -228,10 +228,45 @@
     <div class="footer-bottom" style="font-size: 0.75rem;">
     <p>&copy; 2015&ndash;2026 Nordic Continental Group. All rights reserved.</p>
     <div style="display: flex; gap: 1.5rem;">
-        <a href="#" style="color:white; text-decoration:none; opacity: 0.6;">LinkedIn</a>
-        <a href="#" style="color:white; text-decoration:none; opacity: 0.6;">Twitter</a>
+        <a href="#" style="color:white; text-decoration:none; opacity: 0.6;"> </a>
+        <a href="#" style="color:white; text-decoration:none; opacity: 0.6;"> </a>
     </div> 
 </footer>
+
+<script>
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const navLinks = document.getElementById('navLinks');
+
+    menuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        menuBtn.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+    });
+
+    // Close menu on link click
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            menuBtn.textContent = '☰';
+        });
+    });
+
+    // Simple scroll header effect
+    window.addEventListener('scroll', () => {
+        const nav = document.querySelector('nav');
+        if (window.scrollY > 50) {
+            nav.style.padding = '0.8rem 5%';
+            nav.style.background = 'rgba(255, 255, 255, 0.98)';
+        } else {
+            nav.style.padding = '1rem 5%';
+            nav.style.background = 'rgba(255, 255, 255, 0.95)';
+        }
+    });
+</script>
+
+</body>
+</html>
+
+
 
 </body>
 </html>
